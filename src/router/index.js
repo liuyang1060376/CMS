@@ -2,13 +2,16 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '@/pages/Login/Login'
 import Home from '@/pages/Home/Home'
+import Index from '@/pages/Home/children/Index'
+import NewMember from '@/pages/Home/children/NewMember'
+import Consume from '@/components/Cms/Consume'
 
 Vue.use(VueRouter)
 
 const routes = [
   { path: '/', redirect: '/login' },
   { path: '/login', component: Login },
-  { path: '/index', component: Home }
+  { path: '/cms', component: Home, redirect: '/cms/index', children: [{ path: 'index', component: Index }, { path: 'addM', component: NewMember }, { path: 'consume', component: Consume }] }
 ]
 
 const router = new VueRouter({

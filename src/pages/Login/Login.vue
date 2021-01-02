@@ -1,9 +1,16 @@
 <template>
   <div class="login_container">
+<!--    左侧背景图-->
+    <img class="left_img" src="./../../assets/images/fj.jpg" alt="">
+<!--    底部背景图-->
+    <img class="bottom_img" src="./../../assets/images/cmsbottom.png" alt="">
     <div class="login_box">
         <!--用户头像-->
       <div class="avatar_box">
         <img src="./../../assets/images/logo.png" alt="">
+      </div>
+      <div class="cms_title">
+        <img src="./../../assets/images/cmstitle.jpg" alt="">
       </div>
         <!--登录表单区域-->
       <el-form ref="loginFormRef" :model="loginForm" :rules="loginFormRules" class="login_content">
@@ -104,25 +111,37 @@ export default {
 .login_container {
   width: 100%;
   height: 100%;
-  background-color: #2b4b6b;
+  background-color: #f5f5f5;
+  background-size: auto;
   position: relative;
-  .login_box {
-    width: 450px;
-    height: 300px;
-    border-radius: 3px;
-    background-color: #fff;
+  .left_img {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+  .bottom_img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-height: 480px;
+    width: 100%;
+  }
+  .login_box {
+    width: 600px;
+    height: 400px;
+    border-radius: 3px;
+    position: absolute;
+    right: 10%;
+    top: 30%;
     .avatar_box {
       position: absolute;
       left: 50%;
-      transform: translate(-50%,-50%);
+      transform: translate(-50%,-100%);
       padding: 10px;
       width: 130px;
       height: 130px;
-      background-color: #fff;
+      background-color: black;
       border: 1px solid #ccc;
       border-radius: 50%;
       box-shadow: 1px 1px 4px #eee;
@@ -130,7 +149,17 @@ export default {
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        background-color: #eee;
+        background-color: black;
+      }
+    }
+    .cms_title {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%);
+      width: 70%;
+      img {
+        width: 100%;
+        height: 100%;
       }
     }
   }
@@ -146,4 +175,24 @@ export default {
   width: 100%;
   box-sizing: border-box;
 }
+
+.login_container {
+  .el-input__prefix {
+    left: 30px !important;
+  }
+  .el-input__suffix {
+    right: 30px !important;
+  }
+  .el-input {
+    height: 60px;
+    line-height: 60px;
+    input {
+      height: 100%;
+      padding-left: 60px !important;
+      border-radius: 30px !important;
+      width: 100% !important;
+    }
+  }
+}
+
 </style>
